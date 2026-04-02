@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 
 import './App.scss';
 import { MoviesList } from './components/MoviesList';
@@ -22,7 +22,9 @@ function filterMoviesByQuery(filterQuery, movies) {
 export const App = () => {
   const [filterQuery, setFilterQuery] = useState('');
 
-  const visibleMovies = filterMoviesByQuery(filterQuery, moviesFromServer);
+  const visibleMovies = useMemo(() => {
+    return filterMoviesByQuery(filterQuery, moviesFromServer);
+  }, [filterQuery]);
 
   return (
     <div className="page">
