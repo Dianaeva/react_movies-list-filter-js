@@ -4,7 +4,7 @@ import './App.scss';
 import { MoviesList } from './components/MoviesList';
 import moviesFromServer from './api/movies.json';
 
-function filterMoviesByQuery(filterQuery, movies) {
+const filterMoviesByQuery = (filterQuery, movies) => {
   if (filterQuery === '') {
     return movies;
   }
